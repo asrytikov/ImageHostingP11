@@ -1,0 +1,170 @@
+/* ============== Variables ============== */
+:root {
+  --primary: #1a237e;
+  --primary-dark: #0d1440;
+  --light: #f8f9fa;
+  --white: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ============== Base Styles ============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #e3f2fd; /* Same light blue background as main page */
+  color: #333;
+  text-align: center;
+  padding: 2rem;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.main-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.main-header p {
+  font-size: 1rem;
+  color: #2a2a2a;
+  margin-bottom: 1.5rem;
+}
+
+/* ============== Upload Area ============== */
+.upload-area {
+  border: 2px dashed #3498db;
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  margin: 1rem auto;
+  background: var(--white);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+}
+
+.upload-area__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.upload-area__subtext {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* ============== Buttons ============== */
+.browse-button,
+.hero-button,
+#btnGoToImages {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--shadow);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  background: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.browse-button:hover,
+.hero-button:hover,
+#btnGoToImages:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 35, 126, 0.4);
+}
+
+/* ============== Current Upload ============== */
+.current-upload {
+  margin: 1.5rem auto;
+  max-width: 600px;
+  text-align: left;
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.current-upload label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.current-upload__field {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.current-upload__field input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+#copyButton {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#copyButton:hover {
+  background: #f0f0f0;
+}
+
+/* ============== States ============== */
+.upload-area.dragover {
+  border-color: #2ecc71;
+  background: rgba(46, 204, 113, 0.05);
+}
+
+.upload-area.success {
+  border-color: #2ecc71;
+  background: rgba(46, 204, 113, 0.05);
+}
+
+.upload-area.error {
+  border-color: #e74c3c;
+  background: rgba(231, 76, 60, 0.05);
+}
+
+/* ============== Responsive ============== */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .upload-area {
+    padding: 1.5rem;
+  }
+
+  .current-upload__field {
+    flex-direction: column;
+  }
+
+  #copyButton {
+    width: 100%;
+  }
+}

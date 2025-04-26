@@ -1,0 +1,19 @@
+include:
+  - compose.yml
+services:
+  pg_backups:
+    image: prodrigestivill/postgres-backup-local
+    restart: always
+    volumes:
+      - ./backups:/backups
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+    environment:
+      - POSTGRES_EXTRA_OPTS=-Z1 --schema=public --blobs
+      - SCHEDULE=@daily
+      - BACKUP_ON_START=TRUE
+      - BACKUP_KEEP_DAYS=7
+    networks:
+      - back-network

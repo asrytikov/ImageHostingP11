@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Хостинг изображений</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<header class="main-header">
+  <h1>Загрузка изображений</h1>
+  <p>Загружайте селфи, мемы или любые другие изображения.</p>
+  <div>
+    <button id="btnGoToImages" class="hero-button">Перейти в галерею</button>
+  </div>
+</header>
+
+<main>
+  <section id="upload" class="tab-content active">
+    <div class="upload-area" id="drop-area" ondrop="handleFiles(event.dataTransfer.files)">
+      <div class="upload-area__icon">
+        <span>📁</span>
+      </div>
+      <p>Выберите файл или перетащите его сюда</p>
+      <p class="upload-area__subtext">Поддерживаемые форматы: JPG, PNG, GIF (до 5 МБ)</p>
+
+      <input type="file" id="fileInput" hidden/>
+    </div>
+
+    <div>
+      <button id="browseButton" class="browse-button">ВЫБРАТЬ ФАЙЛ</button>
+    </div>
+    <div class="current-upload">
+      <label for="uploadUrl">Ссылка на загруженное изображение</label>
+      <div class="current-upload__field">
+        <input type="text" id="uploadUrl" placeholder="http://"/>
+        <button id="copyButton" disabled>📋</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

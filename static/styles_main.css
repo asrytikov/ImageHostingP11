@@ -1,0 +1,172 @@
+/* ============== Variables ============== */
+:root {
+  /* Colors */
+  --primary: #1a237e;       /* Dark blue */
+  --primary-dark: #0d1440;  /* Darker blue */
+  --secondary: #7209b7;     /* Purple */
+  --accent: #f72585;        /* Pink */
+  --light: #f8f9fa;         /* Light gray */
+  --dark: #000000;          /* Black */
+  --gray: #2a2a2a;          /* Dark gray */
+  --light-gray: #555;       /* Medium gray */
+  --white: #ffffff;         /* White */
+
+  /* Effects */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --feature-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* ============== Base Styles ============== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.hero-body {
+  background: #e3f2fd;      /* Light blue background */
+  color: var(--dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ============== Header Styles ============== */
+.hero-header {
+  padding: 2rem 0;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.hero-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: 2.5rem;
+  color: var(--dark);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============== Features Section ============== */
+.features-section {
+  margin: 3rem auto; /* Увеличенный отступ секции */
+  max-width: 800px;
+  width: 100%;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Увеличенное расстояние между карточками */
+}
+
+.feature-item {
+  background-color: var(--feature-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  color: var(--primary);
+  margin-right: 0.8rem;
+  font-size: 1.2rem;
+}
+
+/* ============== Button Styles ============== */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--shadow);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.primary-button {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.primary-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 35, 126, 0.4);
+}
+
+.hero-icon {
+  font-size: 1.2rem;
+}
+
+/* ============== Animations ============== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============== Responsive Design ============== */
+@media (max-width: 768px) {
+  .hero-header {
+    padding: 1.5rem 0;
+  }
+
+  .hero-actions {
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-item {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
