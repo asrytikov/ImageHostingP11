@@ -11,7 +11,7 @@ function setImages(images) {
         const tdTime = document.createElement('td');
         const tdDelete = document.createElement('td');
         const deleteButton = document.createElement('button');
-        const fullFilename = image.filename + image.file_type;
+        const fullFilename = encodeURIComponent(image.filename + image.file_type);
         deleteButton.onclick = () => {
             fetch(`/api/delete/${fullFilename}`, { method: 'DELETE' })
                 .then(() => loadImages(currentPage))
@@ -52,16 +52,14 @@ function loadImages(page) {
             document.getElementById('currentPage').textContent = page;
             currentPage = page;
         }
-    });
+    })
+    .catch(error => console.error(error));
 }
 
 document.getElementById('btnGoToUpload').addEventListener('click', (event) => {
     window.location.href = '/upload/';
 });
 
-
-
-// Обработчики кликов для кнопок пагинации
 document.getElementById('prevPage').addEventListener('click', () => {
     if (currentPage > 1) {
         loadImages(currentPage - 1);

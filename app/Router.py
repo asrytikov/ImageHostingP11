@@ -30,6 +30,7 @@ class Router(metaclass=SingletonMeta):
         logger.info(f'Added route: {method} {path} -> {handler.__name__}')
 
     def resolve(self, method: str, path: str) -> tuple[callable, dict]:
+        path = path.rstrip('/')
         if method not in self.routes:
             return None, {}
         for pattern in self.routes[method]:
