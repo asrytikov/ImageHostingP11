@@ -41,7 +41,7 @@ class ImageHostingHandler(AdvancedHTTPRequestHandler):
         path = self.path.rstrip('/')  # Нормализация пути
         logger.debug(f"Processing DELETE: {path}")
 
-        if path.startswith('/api/images/'):
+        if path.startswith('/api/delete/'):
             image_id = path.split('/')[-1]  # Извлекаем ID изображения из URL
             return self.delete_image(image_id)
 
